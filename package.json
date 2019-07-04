@@ -1,0 +1,45 @@
+{
+  "name": "solido-relp",
+  "version": "1.0.0",
+  "description": "cli CLI",
+  "private": true,
+  "scripts": {
+    "start": "tsc .replrc.ts && tsc && local-repl",
+    "build": "tsc"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "@decent-bet/contract-playdbet": "1.0.3",
+    "@decent-bet/solido": "^1.0.0-beta.5",
+    "@decent-bet/solido-provider-connex": "^1.1.1",
+    "@vechain/connex": "^1.2.3",
+    "@vechain/connex-framework": "^1.0.0-beta-1",
+    "@vechain/connex.driver-nodejs": "^1.0.0-beta-1",
+    "bignumber.js": "^8.1.1",
+    "cli-highlight": "^2.1.1",
+    "dotenv": "^7.0.0",
+    "ethereum-protocol": "^1.0.1",
+    "janeway": "^0.3.3"
+  },
+  "devDependencies": {
+    "@types/jest": "^24.0.15",
+    "@types/node": "^12.0.10",
+    "jest": "^24.8.0",
+    "local-repl": "^4.0.0",
+    "prettier": "^1.18.2",
+    "rxjs": "^6.5.2",
+    "ts-jest": "^24.0.2",
+    "tslint": "^5.18.0",
+    "tslint-config-prettier": "^1.18.0",
+    "tslint-config-standard": "^8.0.1",
+    "typescript": "^3.2.2"
+  },
+  "jest": {
+    "preset": "ts-jest",
+    "testEnvironment": "node"
+  },
+  "prettier": {
+    "semi": false,
+    "singleQuote": true
+  }
+}
