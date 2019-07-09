@@ -4,7 +4,7 @@
   "description": "cli CLI",
   "private": true,
   "scripts": {
-    "start": "tsc .replrc.ts && tsc && local-repl",
+    "start": "tsc .replrc.ts && tsc && node lib/cli.js",
     "build": "tsc"
   },
   "license": "MIT",
@@ -16,6 +16,7 @@
     "@vechain/connex-framework": "^1.0.0-beta-1",
     "@vechain/connex.driver-nodejs": "^1.0.0-beta-1",
     "bignumber.js": "^8.1.1",
+    "chromafi": "^2.1.0",
     "cli-highlight": "^2.1.1",
     "dotenv": "^7.0.0",
     "ethereum-protocol": "^1.0.1",
