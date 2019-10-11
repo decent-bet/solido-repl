@@ -4,7 +4,7 @@ require('dotenv').config();
 const chromafi = require('chromafi')
 
 import { ConnexPlugin } from '@decent-bet/solido-provider-connex';
-import { DBETVETTokenContract, QuestContract, AdminContract } from '@decent-bet/contract-playdbet';
+import { DBETVETTokenContract, QuestContract, AdminContract, TournamentContract } from '@decent-bet/contract-playdbet';
 
 export const contractMappings = [
   {
@@ -16,6 +16,12 @@ export const contractMappings = [
   {
     name: 'Quest',
     import: QuestContract,
+    provider: ConnexPlugin,
+    enableDynamicStubs: true,
+  },
+  {
+    name: 'Tournament',
+    import: TournamentContract,
     provider: ConnexPlugin,
     enableDynamicStubs: true,
   },
