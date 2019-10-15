@@ -3,32 +3,32 @@ require('dotenv').config();
 // const highlight = require('cli-highlight').highlight
 const chromafi = require('chromafi')
 
-import { ConnexPlugin } from '@decent-bet/solido-provider-connex';
+import { ThorifyPlugin } from '@decent-bet/solido-provider-thorify';
 import { DBETVETTokenContract, QuestContract, AdminContract, TournamentContract } from '@decent-bet/contract-playdbet';
 
 export const contractMappings = [
   {
     name: 'DBETVETToken',
     import: DBETVETTokenContract,
-    provider: ConnexPlugin,
+    provider: ThorifyPlugin,
     enableDynamicStubs: true,
   },
   {
     name: 'Quest',
     import: QuestContract,
-    provider: ConnexPlugin,
+    provider: ThorifyPlugin,
     enableDynamicStubs: true,
   },
   {
     name: 'Tournament',
     import: TournamentContract,
-    provider: ConnexPlugin,
+    provider: ThorifyPlugin,
     enableDynamicStubs: true,
   },
   {
     name: 'Admin',
     import: AdminContract,
-    provider: ConnexPlugin,
+    provider: ThorifyPlugin,
     enableDynamicStubs: true,
   },
 ];
