@@ -21,8 +21,7 @@
     "skipLibCheck": true,
     "allowJs": true,
     "strict": false,
-    "target": "es2017"
+    "target": "es2018"
   },
   "include": ["src/**/*"],
-  "exclude": ["node_modules"]
 }

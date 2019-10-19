@@ -1,6 +1,6 @@
 {
-  "name": "solido-repl",
-  "version": "1.0.2",
+  "name": "solido-ethereum-repl",
+  "version": "1.0.0",
   "description": "cli CLI",
   "private": true,
   "scripts": {
@@ -9,26 +9,20 @@
   },
   "license": "MIT",
   "dependencies": {
-    "@decent-bet/contract-playdbet": "1.0.9",
     "@decent-bet/solido": "^1.1.4",
-    "@decent-bet/solido-provider-connex": "^1.2.3",
-    "@decent-bet/solido-provider-thorify": "^1.1.0",
-    "@vechain/connex": "^1.4.0",
-    "@vechain/connex-framework": "^1.1.0",
-    "@vechain/connex.driver-nodejs": "^1.1.4",
     "bignumber.js": "^9.0.0",
-    "chromafi": "^2.1.0",
-    "cli-highlight": "^2.1.1",
+    "chromafi": "2.1.0",
+    "cli-highlight": "2.1.1",
     "dotenv": "^7.0.0",
     "ethereum-protocol": "^1.0.1",
-    "thorify": "^1.4.0",
-    "web3": "^1.2.1"
+    "ethers": "^4.0.38",
+    "solido-provider-ethers": "^1.0.0"
   },
   "devDependencies": {
     "@types/jest": "^24.0.15",
     "@types/node": "^12.6.3",
     "jest": "^24.8.0",
-    "local-repl": "^4.0.0",
+    "local-repl": "4.0.0",
     "prettier": "^1.18.2",
     "rxjs": "^6.5.2",
     "ts-jest": "^24.0.2",

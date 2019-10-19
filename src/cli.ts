@@ -1,34 +1,18 @@
+import { EthersPlugin } from 'solido-provider-ethers';
+import { cDaiImport } from './compound/abis/rinkeby/cDAI';
+
+
 const repl = require('local-repl');
 require('dotenv').config();
 // const highlight = require('cli-highlight').highlight
 const chromafi = require('chromafi')
 
-import { ThorifyPlugin } from '@decent-bet/solido-provider-thorify';
-import { DBETVETTokenContract, QuestContract, AdminContract, TournamentContract } from '@decent-bet/contract-playdbet';
 
 export const contractMappings = [
   {
-    name: 'DBETVETToken',
-    import: DBETVETTokenContract,
-    provider: ThorifyPlugin,
-    enableDynamicStubs: true,
-  },
-  {
-    name: 'Quest',
-    import: QuestContract,
-    provider: ThorifyPlugin,
-    enableDynamicStubs: true,
-  },
-  {
-    name: 'Tournament',
-    import: TournamentContract,
-    provider: ThorifyPlugin,
-    enableDynamicStubs: true,
-  },
-  {
-    name: 'Admin',
-    import: AdminContract,
-    provider: ThorifyPlugin,
+    name: 'cDai',
+    import: cDaiImport,
+    provider: EthersPlugin,
     enableDynamicStubs: true,
   },
 ];
