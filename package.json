@@ -9,7 +9,7 @@
   },
   "license": "MIT",
   "dependencies": {
-    "@decent-bet/contract-playdbet": "1.0.9",
+    "@decent-bet/contract-playdbet": "1.0.10",
     "@decent-bet/solido": "^1.1.4",
     "@decent-bet/solido-provider-connex": "^1.2.3",
     "@decent-bet/solido-provider-thorify": "^1.1.0",
