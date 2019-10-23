@@ -4,30 +4,36 @@ require('dotenv').config();
 const chromafi = require('chromafi')
 
 import { ThorifyPlugin } from '@decent-bet/solido-provider-thorify';
-import { DBETVETTokenContract, QuestContract, AdminContract, TournamentContract } from '@decent-bet/contract-playdbet';
+import * as contracts from '@decent-bet/contract-playdbet';
 
 export const contractMappings = [
   {
+    name: 'DBETNode',
+    import: (contracts as any).DBETNode,
+    provider: ThorifyPlugin,
+    enableDynamicStubs: true,
+  },
+  {
     name: 'DBETVETToken',
-    import: DBETVETTokenContract,
+    import: contracts.DBETVETTokenContract,
     provider: ThorifyPlugin,
     enableDynamicStubs: true,
   },
   {
     name: 'Quest',
-    import: QuestContract,
+    import: contracts.QuestContract,
     provider: ThorifyPlugin,
     enableDynamicStubs: true,
   },
   {
     name: 'Tournament',
-    import: TournamentContract,
+    import: contracts.TournamentContract,
     provider: ThorifyPlugin,
     enableDynamicStubs: true,
   },
   {
     name: 'Admin',
-    import: AdminContract,
+    import: contracts.AdminContract,
     provider: ThorifyPlugin,
     enableDynamicStubs: true,
   },
