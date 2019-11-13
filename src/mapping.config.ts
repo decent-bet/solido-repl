@@ -33,6 +33,12 @@ const mapper = [
     provider: ThorifyPlugin,
     enableDynamicStubs: true,
   },
+  {
+    name: 'NodeWallet',
+    import: (contracts as any).NodeWallet,
+    provider: ThorifyPlugin,
+    enableDynamicStubs: true,
+  },
 ];
 
 export default mapper;
