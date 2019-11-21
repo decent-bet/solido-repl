@@ -1,3 +1,4 @@
+import { ConnexGraphqlClient } from '@decent-bet/connexql';
 import { Framework } from '@vechain/connex-framework';
 import { Driver, SimpleNet, SimpleWallet } from '@vechain/connex.driver-nodejs';
 import { SolidoModule } from '@decent-bet/solido';
@@ -19,6 +20,7 @@ export const setupSolido = async ({ URL, PRIVATE_KEY, ACCOUNT }: any, contractMa
     const { id } = connex.thor.genesis;
     const chainTag = `0x${id.substring(id.length - 2, id.length)}`;
 
+
     return module.bindContracts({
         'thorify': {
             provider: thor,
@@ -30,4 +32,15 @@ export const setupSolido = async ({ URL, PRIVATE_KEY, ACCOUNT }: any, contractMa
             }
         }
     }).connect();
+};
+
+export const getConnexql = async ({ URL, PRIVATE_KEY, ACCOUNT }: any) => {
+
+    const wallet = new SimpleWallet();
+    wallet.import(PRIVATE_KEY);
+
+    const driver = await Driver.connect(new SimpleNet(URL), wallet);
+    const connex = new Framework(driver);
+
+    return new ConnexGraphqlClient(connex);
 };
