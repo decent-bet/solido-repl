@@ -3,7 +3,19 @@ import { Framework } from '@vechain/connex-framework';
 import { Driver, SimpleNet, SimpleWallet } from '@vechain/connex.driver-nodejs';
 import { SolidoModule } from '@decent-bet/solido';
 import Web3 from 'web3';
+import { MPP } from '@decent-bet/node-mpp';
+
 const { thorify } = require('thorify');
+
+export const getMpp = async ({ URL, PRIVATE_KEY, ACCOUNT }: any) => {
+    return (name: string, address: string) => {
+        const obj = {
+            [name]: address,
+        };
+        const res = new MPP(obj, PRIVATE_KEY, URL);
+        return res[name];
+    }
+};
 
 export const setupSolido = async ({ URL, PRIVATE_KEY, ACCOUNT }: any, contractMappings: any[]) => {
     // Create Solido Module

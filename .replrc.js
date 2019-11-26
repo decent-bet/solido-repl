@@ -7,6 +7,7 @@ module.exports = {
     context: {
         BigNumber: bignumber_js_1.BigNumber,
         contracts: solidoBootstrap_1.setupSolido(process.env, mapping_config_1["default"]),
-        connexql: solidoBootstrap_1.getConnexql(process.env)
+        connexql: solidoBootstrap_1.getConnexql(process.env),
+        getMpp: solidoBootstrap_1.getMpp(process.env)
     }
 };
