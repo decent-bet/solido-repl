@@ -1,0 +1,3 @@
+contracts.DBETVETToken.address
+contracts.DBETVETToken.address
+contracts.DBETVETToken.address

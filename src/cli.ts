@@ -1,11 +1,13 @@
 const repl = require('local-repl');
 require('dotenv').config();
-// const highlight = require('cli-highlight').highlight
 const chromafi = require('chromafi')
 
+import { BigNumber } from 'bignumber.js';
+import { setupSolido, getConnexql, getMpp } from './solidoBootstrap';
+import contractMappings from './mapping.config';
 
-
-
+const env: any = process.env
+let lastNetwork = '';
 repl.start({
   banner: "Solido REPL by @decent-bet",
   prompt: `$ `,
@@ -16,5 +18,39 @@ repl.start({
     } catch (e) {
       return output;
     }
-  }
+  },
+  context: {
+    BigNumber,
+    contracts: setupSolido(env, contractMappings),
+    connexql: getConnexql(env),
+  },
+}).then(async instance => {
+  instance.context.mpp = getMpp(env);
+  instance.context.contracts = await setupSolido(env, contractMappings);
+  instance.context.connexql = await getConnexql(env); 
+  instance.context.BigNumber = BigNumber;
+
+
+  instance.defineCommand('change-network', {
+    help: 'Change network',
+    action: async (network) => {
+      instance.clearBufferedCommand();
+      console.log(`Changing network to ${network}`);
+      // reset with new network
+      instance.context.contracts = await setupSolido(env, contractMappings, network);
+      instance.displayPrompt();
+      lastNetwork = network;
+    }
+  });
+
+  instance.defineCommand('load-mappings', {
+    help: 'Change contract mappings',
+    action: async (mappings) => {
+      instance.clearBufferedCommand();
+      console.log(`Changing mappings`);
+      const contractMappingConfig = require(mappings);
+      instance.context.contracts = await setupSolido(env, contractMappingConfig.default, lastNetwork);
+      instance.displayPrompt();
+    }
+  });
 });

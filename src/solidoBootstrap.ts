@@ -7,7 +7,7 @@ import { MPP } from '@decent-bet/node-mpp';
 
 const { thorify } = require('thorify');
 
-export const getMpp = async ({ URL, PRIVATE_KEY, ACCOUNT }: any) => {
+export const getMpp = ({ URL, PRIVATE_KEY, ACCOUNT }: any) => {
     return (name: string, address: string) => {
         const obj = {
             [name]: address,
@@ -17,16 +17,20 @@ export const getMpp = async ({ URL, PRIVATE_KEY, ACCOUNT }: any) => {
     }
 };
 
-export const setupSolido = async ({ URL, PRIVATE_KEY, ACCOUNT }: any, contractMappings: any[]) => {
+export const setupSolido = async ({ URL, PRIVATE_KEY, ACCOUNT }: any, contractMappings: any[], network: string = 'testnet') => {
     // Create Solido Module
     const module = new SolidoModule(contractMappings);
-
     const wallet = new SimpleWallet();
     wallet.import(PRIVATE_KEY);
 
-    const driver = await Driver.connect(new SimpleNet(URL), wallet);
+    let host = 'https://thor-staging.decent.bet'
+    if (network === 'mainnet') {
+        host = 'https://thor.decent.bet';
+    }
+
+    const driver = await Driver.connect(new SimpleNet(host), wallet);
     const connex = new Framework(driver);
-    const thor = thorify(new Web3(), URL);
+    const thor = thorify(new Web3(), host);
 
     await connex.thor.block(0).get();
     const { id } = connex.thor.genesis;
