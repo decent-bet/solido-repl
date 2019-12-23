@@ -10,7 +10,7 @@
   "license": "MIT",
   "dependencies": {
     "@decent-bet/connexql": "^1.0.7",
-    "@decent-bet/contract-playdbet": "1.0.19",
+    "@decent-bet/contract-playdbet": "1.0.20",
     "@decent-bet/node-mpp": "^1.3.9",
     "@decent-bet/solido": "^1.1.6",
     "@decent-bet/solido-provider-connex": "^1.2.4",
